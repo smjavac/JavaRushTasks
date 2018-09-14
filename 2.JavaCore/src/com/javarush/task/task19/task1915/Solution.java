@@ -16,12 +16,14 @@ public class Solution {
             PrintStream consolreader = System.out;
             ByteArrayOutputStream byteA0S = new ByteArrayOutputStream();
             PrintStream printStream = new PrintStream(byteA0S);
+            PrintStream printFile = new PrintStream(fW);
             System.setOut(printStream);
             testString.printSomething();
             System.setOut(consolreader);
-            byte[] bytes = byteA0S.toByteArray();
             String s = byteA0S.toString();
-            fW.write(bytes);
+            // byte[] bytes = byteA0S.toByteArray();  // можно и так записать в файл
+            //   fW.write(bytes);
+            printFile.println(s);
             System.out.println(s);
         }
 
