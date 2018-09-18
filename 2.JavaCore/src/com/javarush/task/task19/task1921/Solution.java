@@ -28,10 +28,14 @@ public class Solution {
                 name = line.replaceAll("\\d", "").trim();
                 date = line.replace(name, "").trim();
                 PEOPLE.add(new Person(name, sdf.parse(date)));
+                System.out.println(name);
+                System.out.println(date);
             }
-            for (Person p : PEOPLE) {
-                System.out.println(p.getName() + " " + p.getBirthday());
-            }
+
+
+//            for (Person p : PEOPLE) {
+//                System.out.println(p.getName() + " " + p.getBirthday());
+//            }
         }
     }
 }
@@ -51,7 +55,7 @@ public class Solution {
 //                       }
 //               }
 //               Date date1 = new Date(year1- 1900, month1 - 1, day1);
-//               Person person = new Person(name1.toString(), date1);
+//               Person person = new Person(name1.toString().trim(), date1);
 //             //  PEOPLE.add(new Person(name1.toString(), date1));
 //               PEOPLE.add(person);
 //           }
