@@ -24,8 +24,8 @@ public class Solution {
             //initialize users field for the javaRush object here - инициализируйте поле users для объекта javaRush тут
             javaRush.users.add(new User());
             for (User user: javaRush.users){
-                user.setFirstName("Saaa");
-                user.setLastName("Isssssss");
+                user.setFirstName("firstname");
+                user.setLastName("Lastname");
                 user.setCountry(User.Country.OTHER);
                 user.setMale(true);
                 user.setBirthDate(new Date(80,05,07));
