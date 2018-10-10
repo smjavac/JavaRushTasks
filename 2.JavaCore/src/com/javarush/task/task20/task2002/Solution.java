@@ -27,14 +27,14 @@ public class Solution {
                 user.setLastName("Lastname");
                 user.setCountry(User.Country.OTHER);
                 user.setMale(true);
-                user.setBirthDate(new Date(80,05,07));
+                user.setBirthDate(new Date(80,5,7));
                 javaRush.users.add(user);
                 user = new User();
                 user.setFirstName("firstname2");
                 user.setLastName("Lastname2");
                 user.setCountry(User.Country.UKRAINE);
                 user.setMale(true);
-                user.setBirthDate(new Date(81,03,06));
+                user.setBirthDate(new Date(81,3,8));
                 javaRush.users.add(user);
 
 
