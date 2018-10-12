@@ -24,6 +24,9 @@ public class Solution {
             somePerson.load(inputStream);
             inputStream.close();
 
+
+
+
             //check here that ivanov equals to somePerson - проверьте тут, что ivanov и somePerson равны
             System.out.println(ivanov.equals(somePerson));
 
@@ -70,6 +73,9 @@ public class Solution {
 
         public void save(OutputStream outputStream) throws Exception {
             //implement this method - реализуйте этот метод
+
+
+
             PrintWriter printWriter = new PrintWriter(outputStream);
             printWriter.println(name);
             for (Asset a: assets){
@@ -77,15 +83,19 @@ public class Solution {
                 printWriter.println(a.getPrice());
             }
             printWriter.flush();
+
         }
 
         public void load(InputStream inputStream) throws Exception {
             //implement this method - реализуйте этот метод
+
+
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
             this.name = bufferedReader.readLine();
             while (bufferedReader.ready()){
                 this.assets.add(new Asset(bufferedReader.readLine(), Double.parseDouble(bufferedReader.readLine())));
             }
+
 
         }
     }
