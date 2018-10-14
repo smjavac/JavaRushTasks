@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-/* 
+/*
 Читаем и пишем в файл: JavaRush
 */
 public class Solution {
@@ -22,20 +22,20 @@ public class Solution {
 
             JavaRush javaRush = new JavaRush();
             //initialize users field for the javaRush object here - инициализируйте поле users для объекта javaRush тут
-                User user = new User();
-                user.setFirstName("firstname");
-                user.setLastName("Lastname");
-                user.setCountry(User.Country.OTHER);
-                user.setMale(true);
-                user.setBirthDate(new Date(80,5,7));
-                javaRush.users.add(user);
-                user = new User();
-                user.setFirstName("firstname2");
-                user.setLastName("Lastname2");
-                user.setCountry(User.Country.UKRAINE);
-                user.setMale(true);
-                user.setBirthDate(new Date(81,3,8));
-                javaRush.users.add(user);
+            User user = new User();
+            user.setFirstName("firstname");
+            user.setLastName("Lastname");
+            user.setCountry(User.Country.OTHER);
+            user.setMale(true);
+            user.setBirthDate(new Date(80,5,7));
+            javaRush.users.add(user);
+            user = new User();
+            user.setFirstName("firstname2");
+            user.setLastName("Lastname2");
+            user.setCountry(User.Country.UKRAINE);
+            user.setMale(true);
+            user.setBirthDate(new Date(81,3,8));
+            javaRush.users.add(user);
 
 
             javaRush.save(outputStream);
@@ -81,15 +81,15 @@ public class Solution {
             BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
             SimpleDateFormat myDateFormat = new SimpleDateFormat( "EEE MMM dd HH:mm:ss z yyyy", Locale.ENGLISH);
 
-           User u;
+            User u;
             while (br.ready()){
                 u = new User();
-                    u.setFirstName(br.readLine());
-                    u.setLastName(br.readLine());
-                    u.setCountry(User.Country.valueOf(br.readLine()));
-                    u.setMale(Boolean.valueOf(br.readLine()));
-                    u.setBirthDate(myDateFormat.parse(br.readLine()));
-                    users.add(u);
+                u.setFirstName(br.readLine());
+                u.setLastName(br.readLine());
+                u.setCountry(User.Country.valueOf(br.readLine()));
+                u.setMale(Boolean.valueOf(br.readLine()));
+                u.setBirthDate(myDateFormat.parse(br.readLine()));
+                users.add(u);
             }
 
         }
