@@ -20,7 +20,7 @@ class Blip1 implements Externalizable {
 }
 
 class Blip2 implements Externalizable {
-    Blip2() {
+   public Blip2() {
         System.out.println("Blip2 Constructor");
     }
     public void writeExternal(ObjectOutput out)
@@ -51,7 +51,7 @@ public class Blip3 {
         System.out.println("Recovering b1:");
         b1 = (Blip1)in.readObject();
         // OOPS! Throws an exception:
-//! print("Recovering b2:");
-//! b2 = (Blip2)in.readObject();
+        System.out.println("Recovering b2:");
+        b2 = (Blip2)in.readObject();
     }
 }
