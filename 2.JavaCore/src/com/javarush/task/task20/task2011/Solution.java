@@ -4,6 +4,8 @@ import java.io.Externalizable;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 /*
 Externalizable для апартаментов
@@ -42,7 +44,7 @@ public class Solution {
         }
     }
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws IOException {
+      //  String content = new String(Files.readAllBytes(Paths.get(args[0])));
     }
 }
