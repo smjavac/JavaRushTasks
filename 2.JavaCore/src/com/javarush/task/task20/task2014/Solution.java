@@ -24,6 +24,14 @@ public class Solution implements Serializable {
         Solution loadedObject = (Solution) ois.readObject();
         fis.close();
         ois.close();
+//        System.out.println(savedObject.string);
+//        System.out.println(savedObject.pattern);
+//        System.out.println(savedObject.temperature);
+//        System.out.println(savedObject.currentDate);
+//        System.out.println(loadedObject.string);
+//        System.out.println(loadedObject.pattern);
+//        System.out.println(loadedObject.temperature);
+//        System.out.println(loadedObject.currentDate);
         System.out.println(loadedObject.string.equals(savedObject.string));
     }
 
