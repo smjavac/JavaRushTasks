@@ -9,9 +9,9 @@ public class Solution implements Serializable {
     public static class A {
 
         protected  String nameA = "A";
-//        public A(){
-//
-//        }
+        public A(){
+
+        }
 
         public  A (String nameA) {
             this.nameA += nameA;
@@ -23,11 +23,23 @@ public class Solution implements Serializable {
         private  String nameB;
 
         public B(String nameA, String nameB) {
-         //   super();
+       //     super();
               super(nameA);
             this.nameA += nameA;
             this.nameB = nameB;
         }
+
+        private void writeObject(ObjectOutputStream stream) throws IOException{
+                stream.defaultWriteObject();
+                stream.writeObject(nameA);
+
+        }
+        private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException{
+                stream.defaultReadObject();
+                nameA = (String) stream.readObject();
+        }
+
+
     }
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
