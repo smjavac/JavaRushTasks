@@ -15,3 +15,8 @@ public class Solution implements Serializable {
 
     }
 }
+
+/*
+http://www.intuit.ru/studies/courses/16/16/lecture/27133?page=3 про графы объектов
+*/
+
