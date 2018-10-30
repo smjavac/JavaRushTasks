@@ -14,6 +14,13 @@ package com.javarush.task.task20.task2025;
 //    }
 //}
 
+/*
+System.currentTimeMillis() - вернете вам текущее время в мс
+Runtime.getRuntime().freeMemory() - вернет свободную память в байтах
+
+в плане памяти значения будут примерные, т.к. память занимает не только ваш код
+*/
+
 import java.util.Arrays;
 
 public class Solution{
