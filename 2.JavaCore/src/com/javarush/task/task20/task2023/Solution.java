@@ -17,7 +17,7 @@ public class Solution {
         public void method2() {
 
             System.out.println("A class, method2");
-             method1();
+             this.method1();
         }
     }
 
