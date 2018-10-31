@@ -16,6 +16,8 @@ package com.javarush.task.task20.task2025;
 
 import java.util.Arrays;
 
+//import java.util.Arrays;
+//
 public class Solution{
     public static long[] getNumbers(long N){
         if(N > 0){
@@ -26,6 +28,55 @@ public class Solution{
         return new long[]{};
     }
     public static void main(String[] args){
-        for(long l : getNumbers(8207L)) System.out.println(l); //test
+       // long startTime = System.currentTimeMillis();
+        for(long l : getNumbers(4929273885928088826L)) System.out.println(l); //test
+     //   System.out.println(System.currentTimeMillis() - startTime);
     }
 }
+
+//import java.util.ArrayList;
+//import java.util.Arrays;
+//import java.util.List;
+//
+//public class Solution {
+//
+//
+//    public static long[] getNumbers(long N) {
+//
+//            List<Long> list = new ArrayList<>();
+//
+//            for (int index = 0; index < N; index++) {
+//                String val = String.valueOf(index);
+//                int length = val.length();
+//
+//                int s = 0;
+//                for (int j = 0; j < length; j++) {
+//                    char ch = val.charAt(j);
+//                    int digit = Integer.valueOf(String.valueOf(ch));
+//                    s += (int) Math.pow(digit, length);
+//                }
+//
+//                if (s == index) {
+//                    list.add((long) index);
+//                }
+//            }
+//
+//            long[] result = new long[list.size()];
+//            for (int i = 0; i < list.size(); i++) {
+//                long val = list.get(i);
+//                result[i] = val;
+//            }
+//            return result;
+//    }
+//
+//    public static void main(String[] args) {
+//
+//        long startTime = System.currentTimeMillis();
+//        long[] result = getNumbers(99999999999L);
+//        System.out.println(Arrays.toString(result));
+//
+//        System.out.println(System.currentTimeMillis() - startTime);
+//
+//    }
+//
+//}
