@@ -15,7 +15,7 @@ public class Solution {
                 {'m', 'l', 'p', 'r', 'r', 'h'},
                 {'p', 'o', 'e', 'e', 'j', 'j'}
         };
-        detectAllWords(crossword, "home");
+        detectAllWords(crossword, "home", "same");
         /*
 Ожидаемый результат
 home - (5, 3) - (2, 0)
@@ -23,7 +23,7 @@ same - (1, 1) - (4, 1)
          */
     }
 
-    public static List<Word> detectAllWords(int[][] crossword, String... words) {
+    public static List<Word> detectAllWords(int[][] crossword, String... words)  {
            // String [] strings = words.clone();
         List<Word> list = new ArrayList<>();
 
@@ -53,8 +53,8 @@ same - (1, 1) - (4, 1)
                             if ((char)crossword[i][j] == text.toCharArray()[0]) {
                                 System.out.println("первое вхождение");
                                 stringBuilder = stringBuilder.append((char) crossword[i][j]);
-                                System.out.println(startX = j);
-                                System.out.println(startY = i);
+                                startX = j;
+                                startY = i;
                                 try {
                                     if ((char)crossword[i][j+1] == text.toCharArray()[1]) {
                                         System.out.println("первый if");
@@ -129,7 +129,8 @@ same - (1, 1) - (4, 1)
                                         }
                                     }
                                 } catch (ArrayIndexOutOfBoundsException e) {
-                                    continue;
+
+                                    break;
                                 }
                             }
                         }
@@ -141,7 +142,7 @@ same - (1, 1) - (4, 1)
                         list.add(word);
                     }
                //  System.out.println(text);
-                 System.out.println(stringBuilder.toString());
+                 System.out.println("это вызов методы stringBuilder.toString: " + stringBuilder.toString());
              }
              for (Word w : list) System.out.println(w);
         return list;
