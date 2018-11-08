@@ -24,7 +24,6 @@ same - (1, 1) - (4, 1)
     }
 
     public static List<Word> detectAllWords(int[][] crossword, String... words)  {
-           // String [] strings = words.clone();
         List<Word> list = new ArrayList<>();
 
         String text;
@@ -33,94 +32,113 @@ same - (1, 1) - (4, 1)
         int startY = 0;
         int endX = 0;
         int endY = 0;
-            char [][] chars = new char[crossword.length + 1][crossword[0].length+1];
-             for (int i = 0; i < crossword.length; i++){
-                for (int j = 0; j < crossword[i].length; j++){
-                    chars[i][j] = (char) crossword[i][j];
-
-                }
-             }
-
-             for (String s: words){
-                 text = s;
-               //    int texsLength = text.length()-1;                                                          //'f', 'd', 'e', 'r', 'l', 'k'
-              //   char [] ch = text.toCharArray();                                                          // 'u', 's', 'a', 'm', 'e', 'o'
-           //      for (int k = 0; k < text.length(); k++) {                                                 // 'l', 'n', 'g', 'r', 'o', 'v'
-                   StringBuilder stringBuilder = new StringBuilder();                                       // 'm', 'l', 'p', 'r', 'r', 'h'
-                    for (int i = 0; i < crossword.length; i++){                                                // 'p', 'o', 'e', 'e', 'j', 'j'
+              for (String s: words){
+                   text = s;
+                   StringBuilder stringBuilder = new StringBuilder();
+                    for (int i = 0; i < crossword.length; i++){
                         for (int j = 0; j < crossword[i].length; j++) {
 
                             if ((char)crossword[i][j] == text.toCharArray()[0]) {
-                                System.out.println("первое вхождение");
+                           //     System.out.println("первое вхождение");
                                 stringBuilder = stringBuilder.append((char) crossword[i][j]);
                                 startX = j;
-                                startY = i;
+                                startY = i;                                                                             //'f', 'd', 'e', 'r', 'l', 'k'
+                                endX = 0;                                                                               // 'u', 's', 'a', 'm', 'e', 'o'
+                                endY = 0;                                                                               // 'l', 'n', 'g', 'r', 'o', 'v'
                                 try {
                                     if ((char)crossword[i][j+1] == text.toCharArray()[1]) {
-                                        System.out.println("первый if");
+                                     //   System.out.println("первый if");
                                         stringBuilder = stringBuilder.append((char) crossword[i][j+1]);
                                         for (int k = 2; k < text.length(); k++) {
-                                            stringBuilder = stringBuilder.append((char) crossword[i][j+k]);
-                                            endX = j+k;
+                                            stringBuilder = stringBuilder.append((char) crossword[i][j + k]);
+                                            endX = j + k;
                                             endY = i;
                                         }
                                     }
-                                    if ((char)crossword[i][j - 1] == text.toCharArray()[1]) {
-                                        System.out.println("второй if");
-                                        stringBuilder = stringBuilder.append((char) crossword[i][j-1]);
+                                } catch (ArrayIndexOutOfBoundsException e){
+                             //       System.out.println("ошибка в первом if");
+                                }
+                                try {
+                                    if ((char) crossword[i][j - 1] == text.toCharArray()[1]) {
+                                 //       System.out.println("второй if");
+                                        stringBuilder = stringBuilder.append((char) crossword[i][j - 1]);
                                         for (int k = 2; k < text.length(); k++) {
-                                            stringBuilder = stringBuilder.append((char) crossword[i][j-k]);
-                                            endX = j-k;
+                                            stringBuilder = stringBuilder.append((char) crossword[i][j - k]);
+                                            endX = j - k;
                                             endY = i;
                                         }
                                     }
-                                    if ((char)crossword[i-1][j] == text.toCharArray()[1]) {
-                                        System.out.println("третий if");
-                                        stringBuilder = stringBuilder.append((char) crossword[i-1][j]);
+                                }catch (ArrayIndexOutOfBoundsException e){
+                             //       System.out.println("ошибка во втором if");
+                                }
+                                try {
+                                    if ((char) crossword[i - 1][j] == text.toCharArray()[1]) {
+                                 //       System.out.println("третий if");
+                                        stringBuilder = stringBuilder.append((char) crossword[i - 1][j]);
                                         for (int k = 2; k < text.length(); k++) {
-                                            stringBuilder = stringBuilder.append((char) crossword[i-k][j]);
+                                            stringBuilder = stringBuilder.append((char) crossword[i - k][j]);
                                             endX = j;
-                                            endY = i-k;
+                                            endY = i - k;
                                         }
                                     }
-                                    if ((char)crossword[i+1][j] == text.toCharArray()[1]) {
-                                        System.out.println("четвертый if");
-                                        stringBuilder = stringBuilder.append((char) crossword[i+1][j]);
+                                }catch (ArrayIndexOutOfBoundsException e){
+                             //       System.out.println("ошибка в третьем if");
+                                }
+                                try {
+                                    if ((char) crossword[i + 1][j] == text.toCharArray()[1]) {
+                                //        System.out.println("четвертый if");
+                                        stringBuilder = stringBuilder.append((char) crossword[i + 1][j]);
                                         for (int k = 2; k < text.length(); k++) {
-                                            stringBuilder = stringBuilder.append((char) crossword[i+k][j]);
+                                            stringBuilder = stringBuilder.append((char) crossword[i + k][j]);
                                             endX = j;
-                                            endY = i+k;
+                                            endY = i + k;
                                         }
                                     }
-                                    if ((char)crossword[i+1][j+1] == text.toCharArray()[1]) {
-                                        System.out.println("пятый if");
-                                        stringBuilder = stringBuilder.append((char) crossword[i+1][j+1]);
+                                }catch (ArrayIndexOutOfBoundsException e){
+                                //    System.out.println("ошибка в четвертом if");
+                                }
+                                try {
+                                    if ((char) crossword[i + 1][j + 1] == text.toCharArray()[1]) {
+                                //        System.out.println("пятый if");
+                                        stringBuilder = stringBuilder.append((char) crossword[i + 1][j + 1]);
                                         for (int k = 2; k < text.length(); k++) {
-                                            stringBuilder = stringBuilder.append((char) crossword[i+k][j+k]);
-                                            endX = j+k;
-                                            endY = i+k;
+                                            stringBuilder = stringBuilder.append((char) crossword[i + k][j + k]);
+                                            endX = j + k;
+                                            endY = i + k;
                                         }
                                     }
-                                    if ((char)crossword[i-1][j-1] == text.toCharArray()[1]) {
-                                        System.out.println("шестой if");
-                                        stringBuilder = stringBuilder.append((char) crossword[i-1][j-1]);
+                                }catch (ArrayIndexOutOfBoundsException e){
+                               //     System.out.println("ошибка в пятом if");
+                                }
+                                try {
+                                    if ((char) crossword[i - 1][j - 1] == text.toCharArray()[1]) {
+                                 //       System.out.println("шестой if");
+                                        stringBuilder = stringBuilder.append((char) crossword[i - 1][j - 1]);
                                         for (int k = 2; k < text.length(); k++) {
-                                            stringBuilder = stringBuilder.append((char) crossword[i-k][j-k]);
-                                            endX = j-k;
-                                            endY = i-k;
+                                            stringBuilder = stringBuilder.append((char) crossword[i - k][j - k]);
+                                            endX = j - k;
+                                            endY = i - k;
                                         }
                                     }
-                                    if ((char)crossword[i-1][j+1] == text.toCharArray()[1]) {
-                                        System.out.println("седьмой if");
-                                        stringBuilder = stringBuilder.append((char) crossword[i-1][j+1]);
+                                }catch (ArrayIndexOutOfBoundsException e){
+                               //     System.out.println("ошибка в шестом if");
+                                }
+                                try {
+                                    if ((char) crossword[i - 1][j + 1] == text.toCharArray()[1]) {
+                                    //    System.out.println("седьмой if");
+                                        stringBuilder = stringBuilder.append((char) crossword[i - 1][j + 1]);
                                         for (int k = 2; k < text.length(); k++) {
-                                            stringBuilder = stringBuilder.append((char) crossword[i-k][j+k]);
-                                            endX = j+k;
-                                            endY = i-k;
+                                            stringBuilder = stringBuilder.append((char) crossword[i - k][j + k]);
+                                            endX = j + k;
+                                            endY = i - k;
                                         }
                                     }
+                                }catch (ArrayIndexOutOfBoundsException e){
+                               //     System.out.println("ошибка в седьмом if");
+                                }
+                                try {
                                     if ((char)crossword[i+1][j-1] == text.toCharArray()[1]) {
-                                        System.out.println("восьмой if");
+                                  //      System.out.println("восьмой if");
                                         stringBuilder = stringBuilder.append((char) crossword[i+1][j-1]);
                                         for (int k = 2; k < text.length(); k++) {
                                             stringBuilder = stringBuilder.append((char) crossword[i+k][j-k]);
@@ -129,8 +147,7 @@ same - (1, 1) - (4, 1)
                                         }
                                     }
                                 } catch (ArrayIndexOutOfBoundsException e) {
-
-                                    break;
+                              //      System.out.println("ошибка в восьмом if");
                                 }
                             }
                         }
@@ -141,17 +158,11 @@ same - (1, 1) - (4, 1)
                         word.setEndPoint(endX, endY);
                         list.add(word);
                     }
-               //  System.out.println(text);
-                 System.out.println("это вызов методы stringBuilder.toString: " + stringBuilder.toString());
-             }
+               //  System.out.println("это вызов методы stringBuilder.toString: " + stringBuilder.toString());
+              }
              for (Word w : list) System.out.println(w);
         return list;
         }
-
-      //  list.add(new Word(text));
-
-
-
                      public static class Word {
                         private String text;
                         private int startX;
