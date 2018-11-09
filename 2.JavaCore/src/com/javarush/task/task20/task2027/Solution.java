@@ -56,7 +56,7 @@ same - (1, 1) - (4, 1)
                                 startX = j;
                                 startY = i;
                                 try {
-                                    if ((char)crossword[i][j+1] == text.toCharArray()[1]) {
+                                    if ((char)crossword[i][j+1] == text.toCharArray()[1]&& crossword[i].length >= j+text.length()-1) {
                                         System.out.println("первый if");
                                         stringBuilder = stringBuilder.append((char) crossword[i][j+1]);
                                         for (int k = 2; k < text.length(); k++) {
