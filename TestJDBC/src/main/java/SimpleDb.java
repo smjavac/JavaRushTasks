@@ -11,26 +11,27 @@ public class SimpleDb {
 
     public static void main(String[] args) {
         String sql;
-        sql = "CREATE TABLE testauto (id serial not null , model varchar(50), body varchar(50) not null)";
-//        sql = "select * from auto";
+ //       sql = "CREATE TABLE testauto (id serial not null , model varchar(50), body varchar(50) not null)";
+        sql = "select * from auto";
         try (Connection connection = DriverManager.getConnection(DATABASE_URL, USER, PASSWORD);
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(sql)) {
-            Class.forName(JDBC_DRIVER);
-//            System.out.println("\nautomobiles:");
-//            while (resultSet.next()) {
-//                int id = resultSet.getInt("id");
-//                String model = resultSet.getString("model");
-//                String body = resultSet.getString("body");
-//                System.out.println("\n================\n");
-//                System.out.println("id: " + id);
-//                System.out.println("model: " + model);
-//                System.out.println("body: " + body);
-//            }
-        } catch (ClassNotFoundException e) {
-
-        } catch (SQLException e) {
-
+  //          statement.executeUpdate(sql); разкоментировать для создания новой таблицы и закоментировать строку ResultSet resultSet = statement.executeQuery(sql)) с циклом while
+  //          Class.forName(JDBC_DRIVER); // не нужно
+ //           System.out.println("\nautomobiles:");
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String model = resultSet.getString("model");
+                String body = resultSet.getString("body");
+                System.out.println("\n================\n");
+                System.out.println("id: " + id);
+                System.out.println("model: " + model);
+                System.out.println("body: " + body);
+            }
+        }// catch (ClassNotFoundException e) {
+         //   e.printStackTrace();
+         catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
