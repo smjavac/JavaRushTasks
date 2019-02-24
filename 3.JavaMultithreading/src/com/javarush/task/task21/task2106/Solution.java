@@ -21,6 +21,7 @@ public class Solution {
         this.solution = solution;
     }
 
+<<<<<<< HEAD
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -37,11 +38,18 @@ public class Solution {
     public int hashCode() {
         return Objects.hash(anInt, string, aDouble, date, solution);
     }
+=======
+
+>>>>>>> a0b1ce9b00574e7048de6f77fedda94945fb606b
 
 //    @Override
 //    public boolean equals(Object o) {
 //        if (this == o) return true;
+<<<<<<< HEAD
 //        if (!(o instanceof Solution)) return false;
+=======
+//        if (o instanceof Solution) return true;
+>>>>>>> a0b1ce9b00574e7048de6f77fedda94945fb606b
 //
 //        Solution solution1 = (Solution) o;
 //
@@ -53,7 +61,29 @@ public class Solution {
 //
 //        return true;
 //    }
+<<<<<<< HEAD
 //
+=======
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Solution solution1 = (Solution) o;
+        return anInt == solution1.anInt &&
+                Double.compare(solution1.aDouble, aDouble) == 0 &&
+                Objects.equals(string, solution1.string) &&
+                Objects.equals(date, solution1.date) &&
+                Objects.equals(solution, solution1.solution);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(anInt, string, aDouble, date, solution);
+    }
+
+
+>>>>>>> a0b1ce9b00574e7048de6f77fedda94945fb606b
 //    @Override
 //    public int hashCode() {
 //        int result;
@@ -65,8 +95,11 @@ public class Solution {
 //        return result;
 //    }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> a0b1ce9b00574e7048de6f77fedda94945fb606b
     public static void main(String[] args) {
 
     }

@@ -7,7 +7,11 @@ import java.util.Set;
 /* 
 Equals and HashCode
 */
+<<<<<<< HEAD
 public class Solution {
+=======
+public class Solution  {
+>>>>>>> a0b1ce9b00574e7048de6f77fedda94945fb606b
     private final String first, last;
 
     public Solution(String first, String last) {
@@ -15,6 +19,7 @@ public class Solution {
         this.last = last;
     }
 
+<<<<<<< HEAD
     public boolean equals(Object o) {
         if (this == o) return true;
         if(!(o instanceof Solution)) return false;
@@ -35,3 +40,26 @@ public class Solution {
         System.out.println(s.contains(new Solution("Donald", "Duck")));
     }
 }
+=======
+    public static void main(String[] args) {
+        Set<Solution> s = new HashSet<>();
+        s.add(new Solution("Donald", "Duck"));
+        System.out.println(s.contains(new Solution("Donald", "Duck")));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Solution)) return false;
+        Solution solution = (Solution) o;
+        return Objects.equals(first, solution.first) &&
+                Objects.equals(last, solution.last);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(first, last);
+    }
+}
+
+>>>>>>> a0b1ce9b00574e7048de6f77fedda94945fb606b
