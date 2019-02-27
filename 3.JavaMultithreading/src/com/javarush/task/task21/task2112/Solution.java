@@ -9,7 +9,7 @@ public class Solution {
             fakeConnection.unsupportedOperation();
 
         } catch (Exception e) {
-            
+
         }
     }
 }
