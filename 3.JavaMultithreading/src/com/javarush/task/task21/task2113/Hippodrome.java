@@ -18,10 +18,12 @@ public class Hippodrome {
     }
 
     public static void main(String[] args) {
-      //  game = new Hippodrome()
-        Horse horse1 = new Horse("horse1", -3, 0);
-        Horse horse2 = new Horse("horse2", -3, 0);
-        Horse horse3 = new Horse("horse3", -3, 0);
-
+        game = new Hippodrome(new ArrayList<>());
+        Horse horse1 = new Horse("horse1", 3, 0);
+        Horse horse2 = new Horse("horse2", 3, 0);
+        Horse horse3 = new Horse("horse3", 3, 0);
+        game.getHorses().add(horse1);
+        game.getHorses().add(horse2);
+        game.getHorses().add(horse3);
     }
 }
