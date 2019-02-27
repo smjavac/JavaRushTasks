@@ -65,4 +65,10 @@ public class Solution {
     public static void main(String[] args) {
 
     }
+
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        if (connection != null) connection.close();
+    }
 }
