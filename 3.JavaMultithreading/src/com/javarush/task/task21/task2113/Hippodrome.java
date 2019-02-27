@@ -9,6 +9,49 @@ public class Hippodrome {
 
     static Hippodrome game;
 
+    public void run(){
+        for( int i = 0; i < 100; i++){
+            move();
+            print();
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void move() {
+        for (Horse horse : horses){
+            horse.move();
+            horse.print();
+        }
+    }
+
+    public void print() {
+        for (Horse horse : horses){
+            horse.print();
+        }
+        for (int i = 0; i < 10; i++)
+            System.out.println("");
+    }
+
+        public Horse getWinner() {
+        int dist = (int) horses.get(0).distance;
+        Horse hors = horses.get(0);
+            for (int i = 1; i < horses.size(); i++){
+                if ( dist < (int)horses.get(i).distance){
+                    dist = (int)horses.get(i).distance;
+                    hors = horses.get(i);
+                }
+            }
+         return hors;
+        }
+
+        public void printWinner() {
+            System.out.println("Winner is " + getWinner().getName()+ "!");
+        }
+
     public Hippodrome(List<Horse> horses) {
         this.horses = horses;
     }
@@ -25,5 +68,7 @@ public class Hippodrome {
         game.getHorses().add(horse1);
         game.getHorses().add(horse2);
         game.getHorses().add(horse3);
+        game.run();
+
     }
 }
